@@ -1,0 +1,615 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>Git and GitHub: A Developer's Best Friend</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css"
+        />
+        <style>
+            :root {
+                --main-bg-color: #282a36;
+                --main-text-color: #f8f8f2;
+                --accent-color: #8be9fd;
+                --highlight-color: #50fa7b;
+                --danger-color: #ff5555;
+                --warning-color: #ffb86c;
+            }
+
+            body {
+                background-color: var(--main-bg-color);
+                color: var(--main-text-color);
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 70%;
+            }
+
+            .reveal .slides {
+                text-align: left;
+            }
+
+            .reveal h1,
+            .reveal h2 {
+                color: var(--accent-color);
+                margin-bottom: 0.6em;
+                text-transform: none;
+            }
+
+            .reveal h1 {
+                font-size: 1.75em;
+            }
+
+            .reveal h2 {
+                font-size: 1.26em;
+            }
+
+            .reveal h3 {
+                color: var(--highlight-color);
+                font-size: 0.98em;
+                margin-bottom: 0.4em;
+            }
+
+            .reveal ul {
+                margin-left: 1em;
+            }
+
+            .reveal p {
+                font-size: 0.7em;
+            }
+
+            .reveal li {
+                margin-bottom: 0.8em;
+                font-size: 0.7em;
+            }
+
+            .reveal code {
+                background-color: rgba(0, 0, 0, 0.3);
+                padding: 0.2em 0.4em;
+                border-radius: 3px;
+                font-family: "Courier New", Courier, monospace;
+                font-size: 0.7em;
+                position: relative;
+                display: inline-block;
+            }
+
+            .reveal code:hover .copy-button {
+                display: block;
+            }
+
+            .copy-button {
+                display: none;
+                position: absolute;
+                right: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: var(--accent-color);
+                color: var(--main-bg-color);
+                border: none;
+                border-radius: 3px;
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+                cursor: pointer;
+                opacity: 0.8;
+                transition: opacity 0.2s;
+            }
+
+            .copy-button:hover {
+                opacity: 1;
+            }
+
+            .reveal pre {
+                background-color: rgba(0, 0, 0, 0.4);
+                border-radius: 5px;
+                padding: 1em;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                font-size: 0.7em;
+            }
+
+            .reveal pre code {
+                background: transparent;
+                padding: 0;
+            }
+
+            .highlight {
+                color: var(--highlight-color);
+                font-weight: bold;
+            }
+
+            .danger {
+                color: var(--danger-color);
+                font-weight: bold;
+            }
+
+            .warning {
+                color: var(--warning-color);
+            }
+
+            .side-by-side {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .col {
+                flex: 1;
+                padding: 0 1em;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+
+            .command {
+                font-family: "Courier New", Courier, monospace;
+                background-color: rgba(0, 0, 0, 0.3);
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                margin: 0.5em 0;
+                display: inline-block;
+                font-size: 0.7em;
+            }
+
+            .fragment.highlight-current-blue.visible.current-fragment {
+                color: var(--accent-color);
+            }
+
+            .pros-cons-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 2em;
+            }
+
+            .pros,
+            .cons {
+                border-radius: 5px;
+                padding: 0.5em 1em;
+            }
+
+            .pros {
+                background-color: rgba(80, 250, 123, 0.1);
+                border-left: 3px solid var(--highlight-color);
+            }
+
+            .cons {
+                background-color: rgba(255, 85, 85, 0.1);
+                border-left: 3px solid var(--danger-color);
+            }
+
+            .footer {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.42em;
+                opacity: 0.6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section
+                    data-background-gradient="linear-gradient(to bottom, #282a36, #44475a)"
+                >
+                    <h1>Git and GitHub</h1>
+                    <h3>A Developer's Best Friend</h3>
+                    <p class="fragment">
+                        Managing code versions and collaboration with ease
+                    </p>
+                    <div class="footer">April 2025</div>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>What is Git?</h2>
+                        <div class="fragment">
+                            <p>
+                                Git is a
+                                <span class="highlight"
+                                    >Version Control System (VCS)</span
+                                >
+                                designed to:
+                            </p>
+                            <ul>
+                                <li>Manage multiple versions of a code base</li>
+                                <li>
+                                    Support collaboration across multiple
+                                    developers or teams
+                                </li>
+                                <li>
+                                    Track changes made to your code over time
+                                </li>
+                                <li>
+                                    Easily revert to previous versions when
+                                    needed
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="fragment danger">
+                            It is <strong>NOT</strong> the same as GitHub!
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>What is GitHub?</h2>
+                    <div class="side-by-side">
+                        <div class="col">
+                            <ul>
+                                <li class="fragment">
+                                    GitHub is a <span class="highlight">cloud-based platform</span> that hosts Git repositories,
+                                    serving as a centralized hub for version-controlled projects
+                                </li>
+                                <li class="fragment">
+                                    It enhances team collaboration through powerful features including:
+                                    <ul>
+                                        <li>Pull requests for code review</li>
+                                        <li>Issue tracking for project management</li>
+                                        <li>Actions for CI/CD automation</li>
+                                    </ul>
+                                </li>
+                                <li class="fragment">
+                                    Your GitHub profile functions as an <span class="highlight">interactive portfolio</span>,
+                                    showcasing your contributions, projects, and coding activity to potential employers
+                                </li>
+                                <li class="fragment">
+                                    With over 100 million developers worldwide, GitHub has become the
+                                    <span class="highlight">industry standard</span> for code collaboration
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col fragment text-center">
+                            <img
+                                src="https://avatars.githubusercontent.com/u/542599?v=4"
+                                alt="GitHub Logo and Interface Placeholder"
+                                style="margin-top: 2em; width: '20px'"
+                            />
+                            <p class="text-center" style="margin-top: 1em; font-size: 0.8em;">
+                                GitHub's collaborative ecosystem connects developers across the globe
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Getting Started with Git</h2>
+                    <div class="side-by-side">
+                        <div class="col">
+                            <h3>Confirm Installation</h3>
+                            <div class="command">$ git</div>
+                            <p>
+                                If you see "command not recognized," you need to
+                                install Git
+                            </p>
+                        </div>
+                        <div class="col">
+                            <h3>Configure Git</h3>
+                            <div class="command">
+                                $ git config --global user.name "Your Name"
+                            </div>
+                            <div class="command">
+                                $ git config --global user.email
+                                "your.email@example.com"
+                            </div>
+                            <p>Verify with:</p>
+                            <div class="command">
+                                $ git config --global user.name
+                            </div>
+                            <div class="command">
+                                $ git config --global user.email
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Connecting Git with GitHub</h2>
+                    <div class="fragment">
+                        <h3>Setting up SSH Keys</h3>
+                        <ul>
+                            <li>
+                                Using SSH keys prevents entering your password
+                                each time you push to GitHub
+                            </li>
+                            <li>
+                                Check for existing SSH keys at
+                                <a href="https://github.com/settings/keys"
+                                    >https://github.com/settings/keys</a
+                                >
+                            </li>
+                            <li>
+                                We can assist with SSH key generation if needed
+                            </li>
+                            <li>
+                                Mac OS X users can configure keychain to
+                                automatically enter passwords via HTTPS
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fragment">
+                        <h3>Creating & Connecting a Repository</h3>
+                        <ol>
+                            <li>
+                                Initialize a Git repository with
+                                <code>git init<button class="copy-button" onclick="navigator.clipboard.writeText('git init')">📋</button></code> in your project directory
+                            </li>
+                            <li>
+                                Create a new repository on GitHub with the same
+                                name
+                            </li>
+                            <li>
+                                Follow GitHub instructions to connect your local
+                                repo to the remote one
+                            </li>
+                            <li>
+                                Note: You must have files in your project to
+                                commit before pushing
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Basic Git/GitHub Workflow</h2>
+                    <ol>
+                        <li class="fragment highlight-current-blue">
+                            Create a new Issue on the GitHub repository
+                        </li>
+                        <li class="fragment highlight-current-blue">
+                            Create a new branch for your work:
+                            <code>git checkout -b feature-name #1<button class="copy-button" onclick="navigator.clipboard.writeText('git checkout -b feature-name #1')">📋</button></code>
+                        </li>
+                        <li class="fragment highlight-current-blue">
+                            Stage files for commit:
+                            <ul>
+                                <li>
+                                    <code>git add &lt;file-name&gt;<button class="copy-button" onclick="navigator.clipboard.writeText('git add <file-name>')">📋</button></code> for
+                                    specific files
+                                </li>
+                                <li>
+                                    <code>git add .<button class="copy-button" onclick="navigator.clipboard.writeText('git add .')">📋</button></code> for all files in
+                                    current directory
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="fragment highlight-current-blue">
+                            Commit changes with a descriptive message:
+                            <code>git commit -m "Fix navigation bug"<button class="copy-button" onclick="navigator.clipboard.writeText('git commit -m "Fix navigation bug"')">📋</button></code>
+                        </li>
+                        <li class="fragment highlight-current-blue">
+                            Push changes to GitHub:
+                            <code>git push origin feature-name<button class="copy-button" onclick="navigator.clipboard.writeText('git push origin feature-name')">📋</button></code>
+                        </li>
+                        <li class="fragment highlight-current-blue">
+                            Create a Pull Request on GitHub
+                        </li>
+                        <li class="fragment highlight-current-blue">
+                            Resolve any merge conflicts if they exist
+                        </li>
+                        <li class="fragment highlight-current-blue">
+                            Merge the Pull Request when ready
+                        </li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>Git Branching Essentials</h2>
+                    <div class="side-by-side">
+                        <div class="col">
+                            <div class="command">$ git branch</div>
+                            <p>View all branches in repository</p>
+
+                            <div class="command">
+                                $ git checkout &lt;branch-name&gt;
+                            </div>
+                            <p>Switch to existing branch</p>
+                        </div>
+                        <div class="col">
+                            <div class="command">
+                                $ git checkout -b &lt;branch-name&gt;
+                            </div>
+                            <p>Create and switch to a new branch</p>
+
+                            <div class="command">
+                                $ git branch -d &lt;branch-name&gt;
+                            </div>
+                            <p>Delete a branch (after merging)</p>
+                        </div>
+                    </div>
+                    <div class="fragment text-center">
+                        <img
+                            src="/api/placeholder/500/200"
+                            alt="Git Branching Visualization"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Merge vs. Rebase</h2>
+                        <p>
+                            Both are methods to integrate changes from one
+                            branch into another branch, but they work
+                            differently:
+                        </p>
+                        <div class="text-center fragment">
+                            <img
+                                src="mergevsrebase.jpg"
+                                alt="Merge vs Rebase Comparison"
+                            />
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Git Merge</h2>
+                        <div class="pros-cons-grid">
+                            <div class="pros">
+                                <h3>Pros</h3>
+                                <ul>
+                                    <li>
+                                        Easy to use:
+                                        <code>git checkout feature<button class="copy-button" onclick="navigator.clipboard.writeText('git checkout feature')">📋</button></code> then
+                                        <code>git merge master<button class="copy-button" onclick="navigator.clipboard.writeText('git merge master')">📋</button></code>
+                                    </li>
+                                    <li>
+                                        Non-destructive operation that preserves
+                                        history
+                                    </li>
+                                    <li>
+                                        Creates a merge commit showing when
+                                        branches were integrated
+                                    </li>
+                                    <li>
+                                        Safe choice for public/shared branches
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h3>Cons</h3>
+                                <ul>
+                                    <li>
+                                        Creates extraneous merge commits in
+                                        history
+                                    </li>
+                                    <li>
+                                        Results in a forked history when viewed
+                                        with <code>git log<button class="copy-button" onclick="navigator.clipboard.writeText('git log')">📋</button></code>
+                                    </li>
+                                    <li>
+                                        Can make the project history more
+                                        difficult to read
+                                    </li>
+                                    <li>
+                                        May complicate rolling back to previous
+                                        states
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Git Rebase</h2>
+                        <div class="pros-cons-grid">
+                            <div class="pros">
+                                <h3>Pros</h3>
+                                <ul>
+                                    <li>
+                                        Creates a cleaner, linear project
+                                        history
+                                    </li>
+                                    <li>
+                                        Usage:
+                                        <code>git checkout feature<button class="copy-button" onclick="navigator.clipboard.writeText('git checkout feature')">📋</button></code> then
+                                        <code>git rebase master<button class="copy-button" onclick="navigator.clipboard.writeText('git rebase master')">📋</button></code>
+                                    </li>
+                                    <li>
+                                        Eliminates unnecessary merge commits
+                                    </li>
+                                    <li>
+                                        Makes following the project history
+                                        easier
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h3>Cons</h3>
+                                <ul>
+                                    <li>
+                                        Rewrites project history (potentially
+                                        dangerous)
+                                    </li>
+                                    <li>
+                                        Loses context of when upstream changes
+                                        were integrated
+                                    </li>
+                                    <li>
+                                        Can cause issues if used on
+                                        public/shared branches
+                                    </li>
+                                    <li>
+                                        May lead to diverged histories requiring
+                                        additional merges
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Handling Merge Conflicts</h2>
+                    <div class="fragment">
+                        <h3>What causes conflicts?</h3>
+                        <p>
+                            Merge conflicts occur when two developers modify the
+                            same portions of the same files and try to merge
+                            their changes.
+                        </p>
+                    </div>
+                    <div class="fragment">
+                        <h3>Preventing conflicts</h3>
+                        <p>
+                            Ensure one branch is fully committed, pushed, and
+                            merged to master before another branch tries to do
+                            the same.
+                        </p>
+                    </div>
+                    <div class="fragment">
+                        <h3>Resolving conflicts</h3>
+                        <ul>
+                            <li>
+                                Modern text editors and GitHub provide visual
+                                tools to help resolve conflicts
+                            </li>
+                            <li>
+                                Conflicts are marked in files showing both
+                                versions of the changed code
+                            </li>
+                            <li>
+                                You can choose to keep one version or combine
+                                both as needed
+                            </li>
+                            <li>
+                                After resolving, add the files and complete the
+                                merge or rebase
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section
+                    data-background-gradient="linear-gradient(to bottom, #282a36, #44475a)"
+                >
+                    <h1>Thank You!</h1>
+                    <h3>Questions?</h3>
+                    <p>Remember: Practice makes perfect with Git</p>
+                </section>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                center: false,
+                width: "100%",
+                height: "100%",
+                // margin: "0.01em",
+                margin: 0.09,
+                hash: true,
+                transition: "slide",
+                // More info: https://revealjs.com/config/
+                plugins: [],
+            });
+        </script>
+    </body>
+</html>
