@@ -7,6 +7,24 @@
     --warning-color: #ffb86c;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+#root {
+    height: 100%;
+}
+
+.reveal-container {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--main-bg-color);
+}
+
 body {
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
@@ -14,7 +32,22 @@ body {
     font-size: 70%;
 }
 
+.reveal {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 .reveal .slides {
+    text-align: left;
+}
+
+.reveal .slides > section {
+    min-height: 100%;
     text-align: left;
 }
 
