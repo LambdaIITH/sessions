@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   return (
-    <Router>
+    <Router basename="">
       <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/git" element={<Git />} />
