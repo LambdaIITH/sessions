@@ -23,7 +23,7 @@ const Landing = () => {
   return (
     <div className="landing-container">
       <header className="landing-header">
-        <h1>ProFicient Sessions</h1>
+        <h1>Lambda Sessions</h1>
         <p>Interactive learning slides for developers</p>
       </header>
 
